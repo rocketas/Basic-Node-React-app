@@ -1,0 +1,3 @@
+X -- add build stage to AWS-CodePipeline
+X -- automate the build of docker images when pushed 
+

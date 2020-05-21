@@ -6,7 +6,7 @@ type TestResponse = {
 }
 
 // react component returns 
-
+let PORT = 5000
 export class Test extends React.Component<{}, TestResponse>{
 
     constructor(props: {}){
@@ -16,18 +16,21 @@ export class Test extends React.Component<{}, TestResponse>{
 
     async query(url: string): Promise<any>{
         let value =  await axios.get(url)
-        console.log(value)
         return value
     }
 
     componentDidMount(){
         console.log("in component did mount")
-        this.query("http://localhost:3001/test").then( response =>{
-            console.log(response)
-            this.setState({
-                data: response.data
+        this.query(`http://localhost:${PORT}/test`)
+            .then( response =>{
+                console.log(response)
+                this.setState({
+                    data: response.data
+                })
+            }).catch( error => {
+                console.log(error)
+                console.log("error while querying")
             })
-        })
     }
 
     render(){

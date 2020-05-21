@@ -1,0 +1,10 @@
+DOCKER
+ Frontend:
+  docker build . -t frontend
+   docker images //to see all images
+  docker run -p 3500:3000 frontend //3500 is port where docker listens, and forwards to 3000 which is react. 
+  Accessible at http://localhost:3500
+
+ Backend:
+  docker build . -t backend
+  docker run -p 5000:5000 backend
